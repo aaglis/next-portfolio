@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import MePhoto from "../../../public/me.jpg";
 import Image from "next/image";
@@ -68,7 +67,7 @@ export default function Initial() {
 
       {/* Foto */}
       <motion.div
-        className="flex justify-center"
+        className="max-w-xl flex justify-center"
         initial={{ opacity: 0, x: 80 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
