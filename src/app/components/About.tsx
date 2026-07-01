@@ -1,70 +1,116 @@
-import MeImage from "../../../public/me.jpg";
-import { Lightbulb, Code, Users, Heart } from "lucide-react";
+"use client";
+
+import { Code, FileCode, Users } from "lucide-react";
+import { motion } from "framer-motion";
+
+const values = [
+  {
+    icon: <Code size={22} />,
+    title: "Front & Back",
+    text: "Penso na aplicação como um sistema só: interface que comunica e API que responde, sem fronteiras artificiais entre os dois.",
+  },
+  {
+    icon: <FileCode size={22} />,
+    title: "Código claro",
+    text: "Componentes previsíveis, APIs objetivas, estrutura que não acumula dívida técnica com o tempo.",
+  },
+  {
+    icon: <Users size={22} />,
+    title: "Colaboração",
+    text: "Contexto de produto, feedback direto e entregas iterativas. Funciono bem em time e com ritmo.",
+  },
+];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.12, ease: "easeOut" as const },
+  }),
+};
+
+const iconVariants = {
+  hidden: { scale: 0, rotate: -30 },
+  visible: {
+    scale: 1,
+    rotate: 0,
+    transition: { type: "spring" as const, stiffness: 250, damping: 15 },
+  },
+};
 
 export default function About() {
+  return (
+    <section
+      id="sobre"
+      aria-labelledby="about-title"
+      className="scroll-mt-20 px-4 py-20 sm:px-6 sm:py-24"
+    >
+      <div className="mx-auto max-w-5xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45 }}
+          className="mx-auto mb-14 max-w-2xl text-center"
+        >
+          <motion.p
+            initial={{ opacity: 0, y: -8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.3 }}
+            className="mb-2 text-sm font-bold uppercase tracking-widest text-zinc-400"
+          >
+            Sobre
+          </motion.p>
+          <h2
+            id="about-title"
+            className="text-3xl font-bold text-zinc-900 sm:text-4xl"
+          >
+            Como eu penso sobre desenvolvimento
+          </h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+            className="mt-3 text-base leading-relaxed text-zinc-600 sm:text-lg"
+          >
+            Não separo front de back como mundos distintos. Prefiro pensar na
+            entrega como um sistema só — código que resolve, de ponta a ponta.
+          </motion.p>
+        </motion.div>
 
-    const softSkills = [
-        { icon: <Lightbulb size={20} />, title: "Inovação", description: "Sempre buscando novas ideias e soluções criativas." },
-        { icon: <Code size={20} />, title: "Qualidade de Código", description: "Escrevo código limpo, eficiente e bem documentado." },
-        { icon: <Users size={20} />, title: "Colaboração", description: "Trabalho em equipe para alcançar objetivos comuns." },
-        { icon: <Heart size={20} />, title: "Paixão", description: "Amor pelo que faço, refletido na qualidade do meu trabalho." },
-    ]
-
-    return (
-        <div className="max-w-7xl mx-auto mt-50 p-4 flex gap-52 items-center">
-            <div className="max-w-xl flex flex-col gap-4">
-                <span className="uppercase text-slate-700 font-semibold">Sobre mim</span>
-                <h2 className="text-5xl font-bold mb-4">Quem sou eu, minhas experiências digitais</h2>
-                <div className="w-16 h-1 bg-slate-700 rounded-md"></div>
-                <div>
-                    <p className="text-lg mb-4">
-                        Sou um desenvolvedor fullstack apaixonado por criar soluções inovadoras
-                        e eficientes. Com experiência em diversas tecnologias, estou sempre em
-                        busca de novos desafios para aprimorar minhas habilidades.
-                    </p>
-                    <p className="text-lg mb-4">
-                        Ao longo da minha carreira, tive a oportunidade de trabalhar em projetos
-                        variados, desde pequenas aplicações até sistemas complexos. Minha abordagem
-                        é focada na qualidade do código, usabilidade e desempenho.
-                    </p>
-                </div>
-
-                <div>
-                    <h3 className="text-2xl font-semibold mb-4">Minhas Qualidades</h3>
-                    <div className="grid grid-cols-2 gap-4">
-                        {softSkills.map((skill) => (
-                            <div key={skill.title} className="flex gap-4 items-start">
-                                <div className="p-3 bg-slate-100 rounded-lg shadow-md">
-                                    {skill.icon}
-                                </div>
-                                <div>
-                                    <h4 className=" font-semibold">{skill.title}</h4>
-                                    <p className="text-md text-slate-600">{skill.description}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>  
-                </div>
-                <div className="flex gap-4">
-                    <ul className="flex gap-2 mt-6">
-                        <li className="flex flex-col items-center">
-                            <span className="font-bold">3+</span>
-                            <p>Anos de Experiência</p>
-                        </li>
-                        <li className="flex flex-col items-center h-12 border-x-2 px-4">
-                            <span className="font-bold">10+</span>
-                            <p>Projetos Completos</p>
-                        </li>
-                        <li className="flex flex-col items-center">
-                            <span className="font-bold">2+</span>
-                            <p>Empresas Colaboradas</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div>
-                <img src={MeImage.src} alt="Aglis Photo" className="w-[400px] h-[600px] object-cover rounded-2xl shadow-lg"/>
-            </div>
+        {/* Cards */}
+        <div className="grid gap-5 sm:grid-cols-3">
+          {values.map((item, i) => (
+            <motion.article
+              key={item.title}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              whileHover={{ y: -4 }}
+              className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+            >
+              <motion.div
+                variants={iconVariants}
+                className="mb-4 inline-flex rounded-lg border border-zinc-200 bg-white p-2.5 text-zinc-700"
+              >
+                {item.icon}
+              </motion.div>
+              <h3 className="text-base font-semibold text-zinc-900">
+                {item.title}
+              </h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-zinc-600">
+                {item.text}
+              </p>
+            </motion.article>
+          ))}
         </div>
-    )
+      </div>
+    </section>
+  );
 }

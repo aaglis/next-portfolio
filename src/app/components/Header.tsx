@@ -19,20 +19,30 @@ export default function Header() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="max-w-7xl fixed left-1/2 -translate-x-1/2 top-4 shadow-md flex gap-4 p-4 w-fit rounded-md border bg-white/40 backdrop-blur-sm z-10"
+      className="fixed left-1/2 -translate-x-1/2 top-4 z-10"
     >
-      {menuItems.map((item, index) => (
-        <motion.div
-          key={item.label}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 + index * 0.1 }}
-        >
-          <Button variant={index === 0 ? "default" : "outline"}>
-            {item.icon} {item.label}
-          </Button>
-        </motion.div>
-      ))}
+      <nav
+        aria-label="Navegação principal"
+        className="flex items-center gap-1.5 sm:gap-2 rounded-lg border bg-white/80 backdrop-blur-sm px-2 py-2 shadow-md"
+      >
+        {menuItems.map((item, index) => (
+          <motion.div
+            key={item.label}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 + index * 0.1 }}
+          >
+            <Button
+              variant={index === 0 ? "default" : "outline"}
+              size="sm"
+              className="gap-1.5 px-2 sm:px-3 text-xs sm:text-sm"
+            >
+              {item.icon}
+              <span className="hidden sm:inline">{item.label}</span>
+            </Button>
+          </motion.div>
+        ))}
+      </nav>
     </motion.header>
   );
 }
