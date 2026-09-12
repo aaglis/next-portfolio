@@ -2,41 +2,36 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Eye } from "lucide-react";
+import Image from "next/image";
 
-/* ───── Dados placeholder ───── */
 const projects = [
   {
-    title: "SaaS Multi-Tenant",
-    desc: "Plataforma com autenticação, múltiplas organizações e dashboard em tempo real. Arquitetura monolítica modular com deploy automatizado via Docker e GitHub Actions.",
-    tags: ["Next.js", "Nest.js", "Postgres", "Docker"],
-    gradient: "from-violet-500 to-purple-700",
-    initials: "SM",
-    link: "#",
+    title: "Intelliboard",
+    desc: "Um espaço para organizar tarefas, notas e calendário, com um servidor MCP que permite ao agente de IA consultar e concluir cards pelo chat.",
+    tags: ["Next.js", "TypeScript", "MCP", "IA"],
+    image: "/projects/intelliboard.png",
+    link: "https://intelliboard.aglissilva.dev/",
   },
   {
-    title: "E-commerce API",
-    desc: "API RESTful para catálogo de produtos, carrinho e pedidos com cache distribuído em Redis e fila de processamento assíncrono com RabbitMQ.",
-    tags: ["Node.js", "Redis", "RabbitMQ", "Docker"],
-    gradient: "from-emerald-500 to-teal-700",
-    initials: "EC",
-    link: "#",
+    title: "Projeto Ágape",
+    desc: "Projeto web desenvolvido para apresentar uma experiência clara, acolhedora e acessível em todos os tamanhos de tela.",
+    tags: ["Angular", "TypeScript", "SCSS"],
+    image: "/projects/projeto-agape.png",
+    link: "https://projeto-agape.vercel.app/",
   },
   {
-    title: "Dashboard Financeiro",
-    desc: "Painel interativo com gráficos em tempo real, exportação de relatórios em PDF e suporte a múltiplos períodos de análise com filtros dinâmicos.",
-    tags: ["React", "TypeScript", "Tailwind", "Chart.js"],
-    gradient: "from-amber-500 to-orange-700",
-    initials: "DF",
-    link: "#",
+    title: "Deppi",
+    desc: "Aplicação web com uma interface moderna e responsiva, pensada para oferecer uma navegação simples e direta.",
+    tags: ["Angular", "TypeScript", "SCSS"],
+    image: "/projects/deppi-dun.png",
+    link: "https://deppi-dun.vercel.app/home",
   },
   {
-    title: "App de Tarefas",
-    desc: "Gerenciador de tarefas com drag-and-drop, colaboração em tempo real via WebSocket e notificações push para atualizações em equipe.",
-    tags: ["Next.js", "WebSocket", "Postgres", "Tailwind"],
-    gradient: "from-sky-500 to-blue-700",
-    initials: "AT",
-    link: "#",
+    title: "Virtual VPN",
+    desc: "Landing page focada em comunicar os benefícios de uma solução de VPN de forma objetiva e visual.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: "/projects/virtual-vpn.png",
   },
 ];
 
@@ -120,15 +115,18 @@ export default function Projects() {
               initial="enter"
               animate="center"
               exit="exit"
-              className="w-full"
+              className="group w-full"
             >
-              {/* Imagem placeholder */}
-              <div
-                className={`flex h-48 items-center justify-center bg-gradient-to-br ${proj.gradient} sm:h-56`}
-              >
-                <span className="select-none text-5xl font-bold tracking-tight text-white/80 sm:text-6xl">
-                  {proj.initials}
-                </span>
+              <div className="relative h-52 overflow-hidden bg-zinc-100 sm:h-64">
+                <Image
+                  src={proj.image}
+                  alt={`Prévia do projeto ${proj.title}`}
+                  fill
+                  sizes="(min-width: 768px) 48rem, 100vw"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  priority={index === 0}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/20 via-transparent to-transparent" />
               </div>
 
               {/* Info */}
@@ -152,16 +150,22 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Link */}
-                <a
-                  href={proj.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100"
-                >
-                  <ExternalLink size={16} />
-                  <span>Ver projeto</span>
-                </a>
+                {proj.link ? (
+                  <a
+                    href={proj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100"
+                  >
+                    <ExternalLink size={16} />
+                    <span>Ver projeto</span>
+                  </a>
+                ) : (
+                  <span className="mt-4 inline-flex items-center gap-2 rounded-lg bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-500">
+                    <Eye size={16} />
+                    <span>Prévia do projeto</span>
+                  </span>
+                )}
               </div>
             </motion.div>
           </AnimatePresence>
