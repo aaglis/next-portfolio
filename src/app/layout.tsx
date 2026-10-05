@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Aglis | Desenvolvedor Full-Stack",
+  title: "Aglis Silva | Desenvolvedor Full Stack",
   description:
-    "Portfólio de Aglis — sistemas completos do frontend ao deploy com React, Node.js, Docker e TypeScript.",
+    "Desenvolvedor Full Stack em Fortaleza. React, Angular, Node.js, Java, APIs e produtos web construídos para funcionar de ponta a ponta.",
 };
 
 export default function RootLayout({
