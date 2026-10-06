@@ -7,17 +7,17 @@ const values = [
   {
     icon: <Code size={22} />,
     title: "Front & Back",
-    text: "Penso na aplicação como um sistema só: interface que comunica e API que responde, sem fronteiras artificiais entre os dois.",
+    text: "Atuo tanto na interface quanto nos serviços que a sustentam, buscando entender o fluxo completo antes de implementar uma demanda.",
   },
   {
     icon: <FileCode size={22} />,
     title: "Código claro",
-    text: "Componentes previsíveis, APIs objetivas, estrutura que não acumula dívida técnica com o tempo.",
+    text: "Procuro manter componentes, APIs e regras de negócio legíveis, testáveis e fáceis de evoluir.",
   },
   {
     icon: <Users size={22} />,
     title: "Colaboração",
-    text: "Contexto de produto, feedback direto e entregas iterativas. Funciono bem em time e com ritmo.",
+    text: "Participo de refinamentos, revisões de código e entregas incrementais, trocando contexto com Produto, Design e Engenharia.",
   },
 ];
 

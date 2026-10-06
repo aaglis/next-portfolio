@@ -54,9 +54,9 @@ export default function Initial() {
             transition={{ delay: 0.6 }}
           >
             <p className="mt-2 text-base leading-relaxed text-zinc-600 sm:text-lg">
-              Construo sistemas completos — do frontend ao deploy — com React,
-              Node.js, Docker e TypeScript. Foco em código limpo, interfaces
-              que comunicam e infraestrutura que sustenta.
+              Trabalho no desenvolvimento e manutenção de aplicações web. No
+              dia a dia, atuo com React, Angular, Node.js, Java, TypeScript e
+              APIs — da interface aos serviços e integrações.
             </p>
           </motion.div>
 

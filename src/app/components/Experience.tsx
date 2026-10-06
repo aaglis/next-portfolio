@@ -61,7 +61,7 @@ const experiences = [
     role: "Desenvolvedor Full-Stack",
     company: "LTAP — Laboratório de Telemática, Acessibilidade e Projetos Educacionais",
     description:
-      "Atuação no desenvolvimento e manutenção de sistemas web educacionais e institucionais, participando de projetos como Edital360, Empreendedores Digitais e PlaforEDU. Trabalho com frontend, backend, integrações, deploy e melhoria de fluxos internos.",
+      "Desenvolvimento e manutenção de sistemas web educacionais e institucionais. Atuo em interfaces, APIs, integrações, deploy e evolução de fluxos internos.",
     tags: ["React", "Next.js", "TypeScript", "Java", "Spring Boot", "PostgreSQL", "Docker"],
   },
 ];
