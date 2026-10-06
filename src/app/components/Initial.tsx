@@ -55,8 +55,8 @@ export default function Initial() {
           >
             <p className="mt-2 text-base leading-relaxed text-zinc-600 sm:text-lg">
               Trabalho no desenvolvimento e manutenção de aplicações web. No
-              dia a dia, atuo com React, Angular, Node.js, Java, TypeScript e
-              APIs — da interface aos serviços e integrações.
+              dia a dia, atuo com React, Angular, Node.js, Java, Python e
+              TypeScript, além de APIs — da interface aos serviços.
             </p>
           </motion.div>
 
